@@ -59,7 +59,7 @@ export default function App() {
       <Modal
         open={showCongrats}
         title="🎉 You did it!"
-        onClose={() => setShowCongrats(false)}
+        onClose={playAgain}
         primary={{ label: 'Play again', onClick: playAgain }}
       >
         <p>

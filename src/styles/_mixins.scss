@@ -35,11 +35,7 @@
   background $dur-med $easing;
 
   &:hover {
-    background: linear-gradient(
-      180deg,
-      color.mix($accent, white, 8%),
-      color.mix(#5b7dff, white, 8%)
-    );
+    background: linear-gradient(180deg, #6f8cff, #587aff);
     @include elevation(0 10px 24px rgba(91,125,255,.35));
   }
 
