@@ -1,0 +1,78 @@
+@use 'sass:color';
+@import './tokens';
+
+@mixin focus-ring($c: $ring) {
+  outline: 2px solid $c;
+  outline-offset: 2px;
+}
+
+@mixin elevation($shadow: $shadow-1) {
+  box-shadow: $shadow;
+}
+
+@mixin surface($from: $surface, $to: $surface-2) {
+  background: linear-gradient(180deg, $from, $to);
+  border: 1px solid rgba(#fff, .1);
+}
+
+@mixin button-reset {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+@mixin primary-button {
+  @include button-reset;
+  background: linear-gradient(180deg, $accent, #5b7dff);
+  color: #fff;
+  padding: .55rem .85rem;
+  border-radius: $radius-2;
+  
+  @include elevation($shadow-1);
+  transition: transform $dur-fast $easing, 
+  box-shadow $dur-med $easing, 
+  background $dur-med $easing;
+
+  &:hover {
+    background: linear-gradient(
+      180deg,
+      color.mix($accent, white, 8%),
+      color.mix(#5b7dff, white, 8%)
+    );
+    @include elevation(0 10px 24px rgba(91,125,255,.35));
+  }
+
+  &:active {
+    transform: translateY(1px);
+    background: linear-gradient(
+      180deg,
+      color.mix($accent, black, 6%),
+      color.mix(#5b7dff, black, 10%)
+    );
+    @include elevation(0 6px 16px rgba(91,125,255,.2));
+  }
+
+  &:focus-visible { @include focus-ring(); }
+}
+
+@mixin glass-frame {
+  background: rgba(#fff, .05);
+  border: 1px solid rgba(#fff, .1);
+  border-radius: $radius-3;
+  @include elevation($shadow-2);
+}
+
+@mixin square-board {
+  width: min(92vw, 760px);
+  aspect-ratio: 1 / 1;
+}
+
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    * { 
+      animation: none !important; 
+      transition: none !important; 
+    }
+  }
+}

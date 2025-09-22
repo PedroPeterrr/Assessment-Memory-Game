@@ -1,0 +1,31 @@
+$bg: #0f1226;
+$bg-mid:#192045;
+$surface: #1a1f3a;
+$surface-2: #11152b;
+$accent: #7c9cff;
+$accent-2: #2de1c2;
+$text: #e9ecff;
+$muted: rgba(#b9c0ff, .6);
+$ring: #9fb4ff;
+$matched-bg: rgba($accent-2, .33);
+
+$space-1: .25rem;
+$space-2: .5rem;
+$space-3: .75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+
+$radius-1: .45rem;
+$radius-2: .6rem;
+$radius-3: .8rem;
+$radius-round: 999px;
+
+$shadow-1: 0 8px 20px rgba(91, 125, 255, .25);
+$shadow-2: 0 20px 60px rgba(0, 0, 0, .25);
+$shadow-glow: 0 30px 80px rgba(0,0,0,.42);
+
+$dur-fast: 2s;
+$dur-med: 5s;
+$easing: cubic-bezier(.2,.8,.2,1);
+
+$font-body: sans-serif;

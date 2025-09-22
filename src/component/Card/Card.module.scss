@@ -1,0 +1,68 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+@import '../../styles/breakpoints';
+
+.card {
+  position: relative;
+  border: none; 
+  background: transparent;
+  border-radius: $radius-2; 
+  outline-offset: 3px;
+
+  &:focus-visible { 
+    @include focus-ring(); 
+  }
+}
+
+.front, .back {
+  position: absolute;
+  inset: 0;
+  display: grid; 
+  place-items: center;
+  font-size: clamp(1.4rem, 6vw, 2.4rem);
+  border-radius: $radius-2;
+  transition: transform .5s $easing, opacity .16s $easing, background-color .2s $easing, box-shadow .2s $easing;
+  backface-visibility: hidden; user-select: none;
+}
+
+.front {
+  @include surface($surface, $surface-2);
+  box-shadow: inset 0 0 0 2px rgba(#fff, .05);
+}
+.back  {
+  @include surface(#12273a, #10232d);
+  transform: rotateY(180deg);
+}
+
+.hidden .front { 
+  transform: rotateY(0deg); 
+}
+
+.hidden .back { 
+  transform: rotateY(180deg); 
+  opacity: 0; 
+}
+
+.revealed .front {
+  transform: rotateY(-180deg); 
+  opacity: 0; 
+}
+
+.revealed .back { 
+  transform: rotateY(0deg);
+  opacity: 1; 
+}
+
+.matched {
+  pointer-events: none;
+  transition: opacity .35s $easing .35s;
+  opacity: 0;
+}
+
+@media (max-width: $bp-sm) {
+  .front, 
+  .back { 
+    font-size: clamp(1.2rem, 8vw, 2rem);
+    border-radius: $radius-1; 
+  }
+}

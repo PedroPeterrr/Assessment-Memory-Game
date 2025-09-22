@@ -1,0 +1,19 @@
+@import './tokens';
+@import './breakpoints';
+@import './mixins';
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, $bg-mid, transparent),
+    radial-gradient(900px 600px at 100% 0, #141a38, transparent),
+    $bg;
+  color: $text;
+  font-family: $font-body;
+}
+
+@include reduce-motion();

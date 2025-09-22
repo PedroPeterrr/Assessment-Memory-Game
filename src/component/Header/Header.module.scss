@@ -1,0 +1,76 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+@import '../../styles/breakpoints';
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: $space-4;
+
+  @include down($bp-sm) 
+  { 
+    grid-template-columns: 1fr; 
+    gap: $space-3; 
+  }
+}
+
+.stats {
+  display: flex; 
+  gap: $space-3;
+
+  & > div {
+    background: rgba(#fff, .05);
+    padding: .5rem .75rem;
+    border-radius: $radius-2;
+    min-width: 90px; 
+    text-align: center;
+  }
+}
+
+.statLabel { 
+  display: block; 
+  color: $muted; 
+  font-size: .85rem; 
+}
+
+.actions { 
+  display: flex; 
+  gap: $space-3; 
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+
+.button { 
+  @include primary-button; 
+}
+
+.sizePicker {
+  display: flex; 
+  gap: $space-2; 
+  align-items: center;
+  border: 1px solid rgba(#fff, .1);
+  padding: $space-3;
+  border-radius: $radius-2;
+
+  legend { 
+    font-size: .8rem; 
+    color: $muted; 
+    padding: 0 .25rem; 
+  }
+
+  label {
+    display: inline-flex; 
+    gap: .35rem; 
+    align-items: center;
+    background: rgba(#fff, .06); 
+    padding: .3rem .5rem; 
+    border-radius: $radius-1;
+  }
+}
+
+.helper {
+  grid-column: 1 / -1;
+  color: $muted; 
+  margin-top: $space-1; 
+}

@@ -1,0 +1,9 @@
+$bp-sm: 800px;
+$bp-xs: 480px;
+
+@mixin down($bp) {
+    @media (max-width: $bp) 
+        { 
+            @content; 
+        } 
+    }

@@ -1,0 +1,30 @@
+@import '../../styles/tokens';
+@import '../../styles/breakpoints';
+@import '../../styles/mixins';
+
+.boardWrapper {
+  display: grid; 
+  justify-items: center; 
+  gap: $space-4;
+
+  @include down($bp-sm) { gap: $space-3; }
+}
+
+.board {
+  @include glass-frame;
+  @include square-board;
+  display: grid;
+  gap: $space-3;
+  padding: $space-3;
+
+  @include down($bp-sm) {
+    width: 100%; 
+    gap: $space-2; 
+    padding: $radius-1; 
+    border-radius: $radius-2;
+  }
+}
+
+.cell { 
+  display: grid; 
+}

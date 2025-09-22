@@ -1,0 +1,77 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+@import '../../styles/breakpoints';
+
+.backdrop {
+  position: fixed; 
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: grid; 
+  place-items: center; 
+  padding: $space-4; 
+  z-index: 1000;
+  animation: fade $dur-fast ease;
+}
+
+.modal {
+  width: min(520px, 100%);
+  @include surface($surface, $bg);
+  border-radius: $radius-3;
+  @include elevation($shadow-glow);
+  padding: $space-4;
+  color: $text;
+  animation: pop .18s ease;
+
+  @include down($bp-sm)
+  { 
+    padding: $space-3; 
+    border-radius: 
+    $radius-2;
+  }
+}
+
+.title { 
+  margin: .25rem 0 .5rem; 
+  font-size: 1.35rem;
+}
+
+.body { 
+  color: $muted; 
+  margin-bottom: .9rem; 
+  font-size: 1rem; 
+}
+
+.actions { 
+  display: flex; 
+  gap: $space-2; 
+  flex-wrap: wrap; 
+  justify-content: flex-end; 
+}
+
+.primary {
+  @include primary-button; 
+}
+
+.secondary {
+  @include button-reset;
+  color: $accent-2;
+  border: 1px solid rgba($accent-2, .5);
+  padding: .5rem .8rem; 
+  border-radius: $radius-2;
+}
+
+.ghost { 
+  @include button-reset; 
+  color: $muted; 
+  padding: .5rem .6rem;
+ }
+
+@keyframes fade { 
+  from { opacity: 0; } 
+  to { opacity: 1; }
+}
+
+@keyframes pop  { 
+  from { transform: translateY(6px) scale(.98); opacity: .9; } 
+  to { transform: none; opacity: 1; }
+}

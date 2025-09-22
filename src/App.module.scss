@@ -1,0 +1,18 @@
+@import './styles/tokens';
+@import './styles/breakpoints';
+@import './styles/mixins';
+
+.app {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: .42rem;
+  padding: $space-5;
+
+  @include down($bp-sm) {
+    display: flex; 
+    flex-direction: column;
+    gap: $space-3;
+    padding: $space-3;
+  }
+}
