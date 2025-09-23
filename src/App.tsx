@@ -6,8 +6,8 @@ import { useTimer, formatMs } from './hooks/useTimer';
 import { useGameStats } from './hooks/useGameStats';
 
 export default function App() {
-  const [rows, setRows] = useState(2);
-  const [cols, setCols] = useState(2);
+  const [rows, setRows] = useState(4);
+  const [cols, setCols] = useState(4);
   const [moves, setMoves] = useState(0);
   const [started, setStarted] = useState(false);
   const [completed, setCompleted] = useState(false);
